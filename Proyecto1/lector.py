@@ -1,7 +1,7 @@
 import cv2
 import os
 
-# ==== CONFIGURACIÓN ====
+
 nombre_clase = "familiar5"  
 path_salida = f"dataset/{nombre_clase}/"
 num_fotos = 50       

@@ -76,7 +76,7 @@ model.compile(
 
 print("Entrenando primera etapa (solo capas superiores)...")
 
-# ===== GUARDAMOS ESTE HISTORIAL =====
+# se guarda este historial
 history1 = model.fit(
     train_gen,
     validation_data=val_gen,
@@ -84,7 +84,7 @@ history1 = model.fit(
     callbacks=[EarlyStopping(monitor='val_accuracy', patience=3, restore_best_weights=True)]
 )
 
-# --- Segunda etapa ---
+# Segunda etapa
 print("\nActivando fine-tuning...")
 
 for layer in base_model.layers[-30:]:
@@ -101,7 +101,7 @@ reduce_lr = ReduceLROnPlateau(monitor='val_loss', factor=0.5, patience=2)
 
 print("Entrenando segunda etapa (fine-tuning)...")
 
-# ===== GUARDAMOS ESTE HISTORIAL =====
+#se guarda este historial
 history2 = model.fit(
     train_gen,
     validation_data=val_gen,
@@ -109,7 +109,7 @@ history2 = model.fit(
     callbacks=[early_stop, reduce_lr]
 )
 
-# === UNIR AMBAS ETAPAS ===
+# Combinar historiales
 full_history = {}
 
 for key in history1.history.keys():
