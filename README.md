@@ -4,3 +4,4 @@ Tareas de IA
 ## Proyecto 1:
 https://youtu.be/rCdY3bkBkAk
 ## Proyecto 2:
+https://youtu.be/CpP-W9fiNCk
